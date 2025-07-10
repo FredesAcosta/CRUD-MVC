@@ -9,23 +9,95 @@ module.exports = {
 
     // Controlador que lista todos los usuarios registrados
     list: (req, res) => {
-        userModel.getAll((err, results) => {
-            if (err) throw err; // Si hay error en la consulta, se lanza una excepción
+    userModel.getAll((err, results) => {
+        if (err) throw err;
 
-            // Comienza a construir el HTML de respuesta
-            let html = `<h1>Usuarios Registrados</h1><a href="/users/create">Crear nuevo</a><ul>`;
-            
-            // Por cada usuario en la base de datos, se agrega un elemento a la lista
-            results.forEach(user => {
-                html += `<li>${user.nombre} - ${user.email} - ${user.telefono} - ${user.rol} | 
-                    <a href="/users/edit/${user.id}">Editar</a> | 
-                    <a href="/users/delete/${user.id}">Eliminar</a></li>`;
-            });
+        let html = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Usuarios Registrados</title>
+            <style>
+                body {
+                    background: linear-gradient(130deg,#ffffff 20%, #005082 80%);
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                }
+                .container {
+                    background: linear-gradient(160deg,#005082 10%, #ffffff 80%);
+                    max-width: 700px;
+                    margin: 60px auto;
+                    padding: 40px 30px 30px 30px;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                    text-align: center;
+                }
+                h1 {
+                    color: #ffffff;
+                    margin-bottom: 30px;
+                }
+                a {
+                    display: inline-block;
+                    padding: 8px 18px;
+                    background: #007bff;
+                    color: #fff;
+                    border-radius: 4px;
+                    text-decoration: none;
+                    font-size: 15px;
+                    margin: 0 2px;
+                    transition: background 0.2s;
+                }
+                a:hover {
+                    background: #0056b3;
+                }
+                ul {
+                    list-style: none;
+                    padding: 0;
+                }
+                li {
+                    background: #fff;
+                    margin-bottom: 10px;
+                    padding: 12px 10px;
+                    border-radius: 4px;
+                    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .actions {
+                    min-width: 180px;
+                }
+            </style>
+        </head>
+        <body>
+        <div class="container">
+            <h1>Usuarios Registrados</h1>
+            <a href="/users/create">Crear nuevo</a>
+            <ul>
+        `;
 
-            html += `</ul>`;
-            res.send(html); // Se envía el HTML como respuesta al navegador
+        results.forEach(user => {
+            html += `
+                <li>
+                    <span>${user.nombre} - ${user.email} - ${user.telefono} - ${user.rol}</span>
+                    <span class="actions">
+                        <a href="/users/edit/${user.id}">Editar</a>
+                        <a href="/users/delete/${user.id}">Eliminar</a>
+                    </span>
+                </li>
+            `;
         });
-    },
+
+        html += `
+            </ul>
+        </div>
+        </body>
+        </html>
+        `;
+        res.send(html);
+    });
+},
 
     // Muestra el formulario para crear un nuevo usuario
     formCreate: (req, res) => {
