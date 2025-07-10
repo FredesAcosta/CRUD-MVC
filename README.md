@@ -1,10 +1,10 @@
 Creación de un CRUD con MVC en Node.js
 
-En el mundo del desarrollo web, construir aplicaciones que permitan a los usuarios interactuar con datos es una tarea fundamental. Las operaciones básicas que realizamos con los datos son CRUD: Crear (Create), Leer (Read), Actualizar (Update) y Eliminar (Delete). Para organizar y mantener el código de estas aplicaciones de forma eficiente, utilizamos patrones de diseño. Uno de los más populares y efectivos es el patrón MVC (Modelo-Vista-Controlador).
+-En el mundo del desarrollo web, construir aplicaciones que permitan a los usuarios interactuar con datos es una tarea fundamental. Las operaciones básicas que realizamos con los datos son CRUD: Crear (Create), Leer (Read), Actualizar (Update) y Eliminar (Delete). Para organizar y mantener el código de estas aplicaciones de forma eficiente, utilizamos patrones de diseño. Uno de los más populares y efectivos es el patrón MVC (Modelo-Vista-Controlador).
 
 Entendiendo el Patrón MVC (Modelo-Vista-Controlador)
 
-El patrón MVC es una arquitectura de software que separa la lógica de una aplicación en tres componentes interconectados, cada uno con una responsabilidad específica. Esta separación de preocupaciones (SoC - Separation of Concerns) mejora la modularidad, la organización del código y la facilidad de mantenimiento.
+-El patrón MVC es una arquitectura de software que separa la lógica de una aplicación en tres componentes interconectados, cada uno con una responsabilidad específica. Esta separación de preocupaciones (SoC - Separation of Concerns) mejora la modularidad, la organización del código y la facilidad de mantenimiento.
 
 Componentes del MVC
 
@@ -37,9 +37,15 @@ Ejemplo: Un Controlador ProductoController recibiría una solicitud para ver tod
 Flujo de Interacción en MVC
 
 El Usuario interactúa con la Vista (ej. hace clic en un botón, envía un formulario).
+
 La Vista envía la solicitud al Controlador.
+
 El Controlador recibe la solicitud, la interpreta y decide qué acción se debe tomar.
+
 El Controlador interactúa con el Modelo para obtener o manipular los datos necesarios.
+
 El Modelo realiza la operación de datos (ej. consulta la DB, guarda un registro) y devuelve el resultado al Controlador.
+
 El Controlador toma los datos del Modelo y decide qué Vista debe actualizarse o generarse.
+
 La Vista se actualiza y presenta la información al Usuario.
