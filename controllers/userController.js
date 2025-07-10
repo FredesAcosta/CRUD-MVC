@@ -49,7 +49,8 @@ module.exports = {
                     transition: background 0.2s;
                 }
                 a:hover {
-                    background: #0056b3;
+                    color: #393E46;
+                    background: linear-gradient(160deg, #ffffff 20%, #005082 80%);
                 }
                 ul {
                     list-style: none;
