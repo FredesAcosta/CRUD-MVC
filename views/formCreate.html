@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/views/CSS/styleFormCreate.css">
+  <title>Crear Usuario</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Crear Usuario</h1>
+    <form action="/users/create" method="POST">
+      <label for="nombre">Nombre:</label>
+      <input type="text" name="nombre" id="nombre" required>
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required>
+      <label for="telefono">Teléfono:</label>
+      <input type="text" name="telefono" id="telefono" required>
+      <label for="rol">Rol:</label>
+      <input type="text" name="rol" id="rol" required>
+      <button type="submit">Guardar</button>
+    </form>
+  </div>
+</body>
+</html>

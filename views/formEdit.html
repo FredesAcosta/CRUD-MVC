@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/views/CSS/styleFomEdit.css">
+  <title>Editar Usuario</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Editar Usuario</h1>
+    <form id="form" method="POST">
+      <label for="nombre">Nombre:</label>
+      <input type="text" name="nombre" id="nombre" required>
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required>
+      <label for="telefono">Teléfono:</label>
+      <input type="text" name="telefono" id="telefono" required>
+      <label for="rol">Rol:</label>
+      <input type="text" name="rol" id="rol" required>
+      <button type="submit">Actualizar</button>
+    </form>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("nombre").value = params.get("nombre");
+    document.getElementById("email").value = params.get("email");
+    document.getElementById("telefono").value = params.get("telefono");
+    document.getElementById("rol").value = params.get("rol");
+    document.getElementById("form").action = "/users/edit/" + params.get("id");
+  </script>
+</body>
+</html>
